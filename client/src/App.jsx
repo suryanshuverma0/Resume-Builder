@@ -1,25 +1,14 @@
 import "./App.css";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Login from "./pages/Login";
-import Signup from "./pages/Signup";
+import { BrowserRouter as Router } from "react-router-dom";
 import AuthProvider from "./contexts/AuthContext";
-import Dashboard from "./pages/Dashboard";
-import PrivateRoute from "./routes/PrivateRoute";
-import Navbar from "./components/Navbar";
+import AppRoutes from "./AppRoutes";
+
 function App() {
   return (
     <div className="">
       <Router>
-      <AuthProvider>
-          <Navbar />
-          <Routes>
-            <Route path="/" element={<Login />} />
-            <Route path="/signup" element={<Signup />} />
-            <Route
-              path="/dashboard"
-              element={<PrivateRoute element={<Dashboard />} />}
-            />
-          </Routes>
+        <AuthProvider>
+          <AppRoutes />
         </AuthProvider>
       </Router>
     </div>

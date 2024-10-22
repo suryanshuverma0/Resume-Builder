@@ -46,9 +46,8 @@ const Form = ({ activeForm, onItemClick }) => {
       break;
   }
 
-  return <div className="">{formToDisplay}</div>;
+  return <div className="max-w-4xl w-full">{formToDisplay}</div>;
 };
-
 Form.propTypes = {
   activeForm: PropTypes.string,
   onItemClick: PropTypes.func,

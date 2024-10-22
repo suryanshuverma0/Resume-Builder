@@ -32,6 +32,7 @@ const AuthProvider = ({ children }) => {
           method: "GET",
           headers: {
             "Content-Type": "application/json",
+             "Authorization": `Bearer ${localStorage.getItem("token")}`
           },
         }
       );
@@ -41,7 +42,9 @@ const AuthProvider = ({ children }) => {
       }
 
       const data = await response.json();
+      console.log("I am data that you need fetched", data);
       setAuthenticatedUserDetails(data);
+      console.log('i am authorized', authenticatedUserDetails)
     } catch (error) {
       console.error("Error fetching user details:", error);
     }
@@ -54,11 +57,11 @@ const AuthProvider = ({ children }) => {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
+          "Authorization": `Bearer ${localStorage.getItem("token")}`,
         },
         body: JSON.stringify(formData),
       });
       const data = await response.json();
-      console.log(data.token);
 
       if (response.status === 200) {
         localStorage.setItem("token", data.token);
@@ -73,7 +76,7 @@ const AuthProvider = ({ children }) => {
           progress: undefined,
           theme: "colored",
         });
-        navigate("/dashboard");
+        navigate("/");
       } else if (response.status === 400) {
         toast.error("Invalid credentials!", {
           position: "top-right",
@@ -98,6 +101,8 @@ const AuthProvider = ({ children }) => {
   const logout = () => {
     localStorage.removeItem("token");
     setAuthenticatedUserDetails(null);
+    setDecodedToken(null);
+
 
     toast.success("Logout Success!", {
       position: "top-right",

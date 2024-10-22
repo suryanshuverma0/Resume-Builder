@@ -101,7 +101,7 @@ const Signup = () => {
         });
         setTimeout(() => {
           navigate("/");
-        }, 2000);
+        }, 1000);
         console.log("User registered successfully!", data);
       } else if (response.status === 400) {
         toast.error("User registration failed!", {

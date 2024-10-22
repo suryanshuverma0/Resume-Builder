@@ -26,17 +26,19 @@ const sidebarItems = [
 
 const Sidebar = ({ onItemClick }) => {
   return (
-    <div className="p-6 overflow-x-auto">
-      <div className="flex w-full whitespace-nowrap gap-8">
-        {sidebarItems.map(({ icon, title, formType }) => (
-          <div key={formType}>
-            <SidebarComponent 
-              icon={icon} 
-              title={title} 
-              onClick={() => onItemClick(formType)} 
-            />
-          </div>
-        ))}
+    <div className="w-full overflow-x-auto px-4 hide-scrollbar">
+      <div className="flex justify-center">
+        <div className="flex max-w-[80vw] gap-8 whitespace-nowrap">
+          {sidebarItems.map(({ icon, title, formType }) => (
+            <div key={formType}>
+              <SidebarComponent
+                icon={icon}
+                title={title}
+                onClick={() => onItemClick(formType)}
+              />
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );

@@ -4,7 +4,7 @@ const SidebarComponent = ({  title, onClick }) => {
     <>
       <div
         onClick={onClick}
-        className="flex flex-col gap-1 items-center shadow-sm rounded-xl hover:bg-gray-200 w-32 h-10 p-1 text-blue-600 bg-blue-50 transition-colors delay-100 cursor-pointer"
+        className="flex flex-col justify-center items-center shadow-sm rounded-xl hover:bg-gray-200 w-32 h-10 p-1 text-blue-600 bg-blue-50 transition-colors delay-100 cursor-pointer"
       >
         {/* <span className="text-sm">{icon}</span> */}
         <h1 className="text-md">{title}</h1>
